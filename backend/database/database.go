@@ -4,13 +4,12 @@ import (
 	"context"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"os"
 	"log"
 	"time"
 )
 
 func Connect() *mongo.Client {
-	clientOptions := options.Client().ApplyURI("mongodb://" + os.Getenv("db") + ":27017")
+	clientOptions := options.Client().ApplyURI("mongodb://" + ${db} + ":27017")
 	client, err := mongo.NewClient(clientOptions)
 	if err != nil {
 		log.Fatal(err)
